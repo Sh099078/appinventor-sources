@@ -1,0 +1,51 @@
+\--- org.web3j:core-android:2.2.1
+     +--- com.squareup:javapoet:1.7.0
+     +--- io.reactivex:rxjava:1.2.2
+     +--- com.fasterxml.jackson.core:jackson-databind:2.8.5
+     |    +--- com.fasterxml.jackson.core:jackson-annotations:2.8.0
+     |    \--- com.fasterxml.jackson.core:jackson-core:2.8.5
+     +--- com.lambdaworks:scrypt:1.4.0
+     +--- cz.msebera.android:httpclient:4.4.1.2
+     \--- com.madgag.spongycastle:prov:1.54.0.0
+          \--- com.madgag.spongycastle:core:1.54.0.0
+-> dependencies.apk 5.98MB app-debug.apk 462K
+
+\--- org.web3j:core:3.3.1-android
+     +--- org.web3j:abi:3.3.1-android
+     |    \--- org.web3j:utils:3.3.1-android
+     |         \--- com.madgag.spongycastle:prov:1.54.0.0
+     |              \--- com.madgag.spongycastle:core:1.54.0.0
+     +--- org.web3j:crypto:3.3.1-android
+     |    +--- org.web3j:rlp:3.3.1-android
+     |    +--- org.web3j:utils:3.3.1-android (*)
+     |    +--- com.fasterxml.jackson.core:jackson-databind:2.8.5
+     |    |    +--- com.fasterxml.jackson.core:jackson-annotations:2.8.0
+     |    |    \--- com.fasterxml.jackson.core:jackson-core:2.8.5
+     |    \--- org.slf4j:slf4j-api:1.7.25
+     +--- org.web3j:tuples:3.3.1-android
+     +--- com.github.jnr:jnr-unixsocket:0.15
+     |    +--- com.github.jnr:jnr-ffi:2.1.2
+     |    |    +--- com.github.jnr:jffi:1.2.14
+     |    |    +--- org.ow2.asm:asm:5.0.3
+     |    |    +--- org.ow2.asm:asm-commons:5.0.3
+     |    |    |    \--- org.ow2.asm:asm-tree:5.0.3
+     |    |    |         \--- org.ow2.asm:asm:5.0.3
+     |    |    +--- org.ow2.asm:asm-analysis:5.0.3
+     |    |    |    \--- org.ow2.asm:asm-tree:5.0.3 (*)
+     |    |    +--- org.ow2.asm:asm-tree:5.0.3 (*)
+     |    |    +--- org.ow2.asm:asm-util:5.0.3
+     |    |    |    \--- org.ow2.asm:asm-tree:5.0.3 (*)
+     |    |    \--- com.github.jnr:jnr-x86asm:1.0.2
+     |    +--- com.github.jnr:jnr-constants:0.9.6
+     |    +--- com.github.jnr:jnr-enxio:0.14
+     |    |    +--- com.github.jnr:jnr-constants:0.9.6
+     |    |    \--- com.github.jnr:jnr-ffi:2.1.2 (*)
+     |    \--- com.github.jnr:jnr-posix:3.0.33
+     |         +--- com.github.jnr:jnr-ffi:2.1.1 -> 2.1.2 (*)
+     |         \--- com.github.jnr:jnr-constants:0.9.6
+     +--- com.squareup.okhttp3:okhttp:3.8.1
+     |    \--- com.squareup.okio:okio:1.13.0
+     +--- com.squareup.okhttp3:logging-interceptor:3.8.1
+     |    \--- com.squareup.okhttp3:okhttp:3.8.1 (*)
+     \--- io.reactivex:rxjava:1.2.4
+dependencies: 4.4MB  app-debug:700K
