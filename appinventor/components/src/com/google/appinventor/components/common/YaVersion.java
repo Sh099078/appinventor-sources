@@ -956,6 +956,18 @@ public class YaVersion {
   // - Initial Polygon implementation for Maps
   public static final int POLYGON_COMPONENT_VERSION = 1;
 
+  // For QAXH_HASH_COMPONENT_VERSION 1:
+  // - Initial implementation with SHA-1 and SHA-256
+    public static final int QAXH_HASH_COMPONENT_VERSION = 1;
+  
+  // For QAXH_ETH_COMPONENT_VERSION 1:
+  // - Initial implementation 
+    public static final int QAXH_ETH_COMPONENT_VERSION = 1;
+
+  // For QAXH_QR_COMPONENT_VERSION 1:
+  // - Initial implementation
+    public static final int QAXH_QR_COMPONENT_VERSION = 1;
+  
   // For RECTANGLE_COMPONENT_VERSION 1:
   // - Initial Rectangle implementation for Maps
   public static final int RECTANGLE_COMPONENT_VERSION = 1;

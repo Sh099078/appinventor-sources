@@ -76,6 +76,31 @@
     <copy toFile="${classes.files.dir}/kawa.jar" file="${lib.dir}/kawa/kawa-1.11-modified.jar" />
     <copy toFile="${classes.files.dir}/acra-4.4.0.jar" file="${lib.dir}/acra/acra-4.4.0.jar" />
     <copy toFile="${classes.files.dir}/twitter4j.jar" file="${lib.dir}/twitter/twitter4j-core-3.0.5.jar" />
+
+<copy toFile="${classes.files.dir}/zxing-core.jar" file="${lib.dir}/QRGenerator/core.jar" />
+
+<copy toFile="${classes.files.dir}/core-3.3.1-android.jar" file="${lib.dir}/web3j/core-3.3.1-android.jar" />
+	  <copy toFile="${classes.files.dir}/crypto-3.3.1-android.jar" file="${lib.dir}/web3j/crypto-3.3.1-android.jar" />
+	  <copy toFile="${classes.files.dir}/utils-3.3.1-android.jar" file="${lib.dir}/web3j/utils-3.3.1-android.jar" />
+	  <copy toFile="${classes.files.dir}/rlp-3.3.1-android.jar" file="${lib.dir}/web3j/rlp-3.3.1-android.jar" />
+	  <copy toFile="${classes.files.dir}/tuples-3.3.1-android.jar" file="${lib.dir}/web3j/tuples-3.3.1-android.jar" />
+	  <copy toFile="${classes.files.dir}/abi-3.3.1-android.jar" file="${lib.dir}/web3j/abi-3.3.1-android.jar" />
+	  <copy toFile="${classes.files.dir}/slf4j-api-1.7.25.jar" file="${lib.dir}/slf4j/slf4j-api-1.7.25.jar" />
+	  <copy toFile="${classes.files.dir}/okio-1.14.1.jar" file="${lib.dir}/okio/okio-1.14.1.jar" />
+
+<copy toFile="${classes.files.dir}/javapoet-1.7.0.jar" file="${lib.dir}/javapoet/javapoet-1.7.0.jar" />
+<copy toFile="${classes.files.dir}/rxjava-1.2.2.jar" file="${lib.dir}/rxjava/rxjava-1.2.2.jar" />
+<copy toFile="${classes.files.dir}/jackson-databind-2.8.5.jar" file="${lib.dir}/jackson-core/jackson-databind-2.8.5.jar" />
+<copy toFile="${classes.files.dir}/jackson-annotations-2.8.0.jar" file="${lib.dir}/jackson-core/jackson-annotations-2.8.0.jar" />
+<copy toFile="${classes.files.dir}/jackson-core-2.1.3.jar" file="${lib.dir}/jackson-core/jackson-core-2.1.3.jar" />
+<copy toFile="${classes.files.dir}/jackson-databind-2.1.3.jar" file="${lib.dir}/jackson-core/jackson-databind-2.1.3.jar" />
+<copy toFile="${classes.files.dir}/jackson-annotations-2.1.4.jar" file="${lib.dir}/jackson-core/jackson-annotations-2.1.4.jar" />
+<copy toFile="${classes.files.dir}/jackson-core-2.8.5.jar" file="${lib.dir}/jackson-core/jackson-core-2.8.5.jar" />
+<copy toFile="${classes.files.dir}/scrypt-1.4.0.jar" file="${lib.dir}/scrypt/scrypt-1.4.0.jar" />
+<copy toFile="${classes.files.dir}/okhttp-3.10.0.jar" file="${lib.dir}/okhttp/okhttp-3.10.0.jar" />
+<copy toFile="${classes.files.dir}/prov-1.54.0.0.jar" file="${lib.dir}/spongycastle/prov-1.54.0.0.jar" />
+<copy toFile="${classes.files.dir}/core-1.54.0.0.jar" file="${lib.dir}/spongycastle/core-1.54.0.0.jar" />
+
     <copy toFile="${classes.files.dir}/twitter4jmedia.jar" file="${lib.dir}/twitter/twitter4j-media-support-3.0.5.jar" />
     <copy toFile="${classes.files.dir}/httpcore-4.3.2.jar" file="${lib.dir}/apache-http/httpcore-4.3.2.jar" />
     <copy toFile="${classes.files.dir}/httpmime-4.3.4.jar" file="${lib.dir}/apache-http/httpmime-4.3.4.jar" />

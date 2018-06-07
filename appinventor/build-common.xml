@@ -146,7 +146,10 @@
     <ai.javac source="5"
               target="5"/>
   </presetdef>
-
+  <presetdef name="ai.javac8">
+    <ai.javac source="8"
+              target="8"/>
+  </presetdef>
   <!-- =====================================================================
 
        Define task ai.dojunit as the default testing task for AI.  It
