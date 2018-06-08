@@ -145,12 +145,6 @@ import java.lang.Throwable;
 	       "scrypt-1.4.0.jar, "+
 	       "prov-1.54.0.0.jar, "+
 	       "core-1.54.0.0.jar")
-
-/**
- * @class QUAXH_Eth
- *
- * Provides access to basic hash functions.
- */
 public class QAXH_Eth extends AndroidNonvisibleComponent implements Component {
   
   private static final String LOG_TAG = "QaxhEthComponent";
@@ -170,24 +164,24 @@ public class QAXH_Eth extends AndroidNonvisibleComponent implements Component {
     Security.insertProviderAt(new org.spongycastle.jce.provider.BouncyCastleProvider(), 1);
   }
 
-  @SimpleFunction(
-    description = "Computes the Keccak-256 of the string parameter.")
   /**
    * Give the keccak hash of a string
    *
    * @param String message, message to hash
    */
+  @SimpleFunction(
+    description = "Computes the Keccak-256 of the string parameter.")
     public String keccak(String message) {
     return Hash.sha3(message);
   }
 
+/**
+* Get a 128 bits random number
+*
+* @return a 128 bits random number
+*/
  @SimpleFunction(
     description = "Get a 128 bits random number")
- /**
-  * Get a 128 bits random number
-  *
-  * @return a 128 bits random number
-  */
     public String getRandom128(){
     SecureRandom rng = new SecureRandom();
     byte[] randomBytes = new byte[16];
@@ -196,13 +190,13 @@ public class QAXH_Eth extends AndroidNonvisibleComponent implements Component {
     return bytesToHex(randomBytes);
 }
 
+/**
+* Get a 256 bits random number
+*
+* @return a 256 bits random number
+*/
  @SimpleFunction(
     description = "Get a 256 bits random number")
- /**
-  * Get a 256 bits random number
-  *
-  * @return a 256 bits random number
-  */
     public String getRandom256(){ 
     SecureRandom rng = new SecureRandom();
     byte[] randomBytes = new byte[32];
@@ -213,14 +207,14 @@ public class QAXH_Eth extends AndroidNonvisibleComponent implements Component {
   
 private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
 
-    /**
-     * Convert from bytes to hexadecimal
-     *
-     * This function isn't visible from AppInventor.
-     *
-     * @param byte[] bytes, the array of bits to be translated
-     * @return a string containing the transalation in hexadecimal
-     */
+/**
+ * Convert from bytes to hexadecimal
+ *
+ * This function isn't visible from AppInventor.
+ *
+ * @param byte[] bytes, the array of bits to be translated
+ * @return a string containing the transalation in hexadecimal
+ */
 private static String bytesToHex(byte[] bytes) {
     char[] hexChars = new char[bytes.length * 2];
     for ( int j = 0; j < bytes.length; j++ ) {
@@ -231,13 +225,13 @@ private static String bytesToHex(byte[] bytes) {
     return new String(hexChars);
 }
  
+ /**
+ * Gets the client version from infura.
+ *
+ * @return the client version from infura.
+ */
   @SimpleFunction(
 		  description = "Gets the client version from infura.")
-  /**
-   * Gets the client version from infura.
-   *
-   * @return the client version from infura.
-   */
 		  public String getClientVersion(){
     initializeWeb3();
     String clientVersion;
@@ -252,14 +246,13 @@ private static String bytesToHex(byte[] bytes) {
     return clientVersion;
   }  
 
-
+/**
+* Gets the current block number.
+*
+* @return the current block number.
+*/
 @SimpleFunction(
 		  description = "Gets the current block number.")
-    /**
-    * Gets the current block number.
-    *
-    * @return the current block number.
-    */
 		  public String getBlockNumber(){
     initializeWeb3();
     EthBlockNumber ethBlockNumber;
@@ -273,14 +266,14 @@ private static String bytesToHex(byte[] bytes) {
     return ethBlockNumber.getBlockNumber().toString();
   }
 
+/**
+ * Gets the balance of an account.
+ *
+ * @param String account, hexadecimal id of the account
+ * @return the balance of the account which id was passed in parameter.
+ */
 @SimpleFunction(
 		  description = "Gets the balance of an account.")
-    /**
-     * Gets the balance of an account.
-     *
-     * @param String account, hexadecimal id of the account
-     * @return the balance of the account which id was passed in parameter.
-     */
 public String getBalance(String account){
     initializeWeb3();
     EthGetBalance ethGetBalance;
@@ -294,13 +287,13 @@ public String getBalance(String account){
     return ethGetBalance.getBalance().toString();
   }
 
+  /**
+   * Generates and ethereum private/public key pair.
+   *
+   * @return the keys and address of the account, in format : Ox <privateKey> /0x04 <publicKeys> /Ox <adress>
+   */
     @SimpleFunction (
 		     description = "Generates and ethereum private/public key pair.")
-    /**
-     * Generates and ethereum private/public key pair.
-     *
-     * @return the keys and address of the account, in format : Ox <privateKey> /0x04 <publicKeys> /Ox <adress>
-     */
 		     public String getKeyPair() {
     ECPublicKey        publicKey;
     ECPrivateKey       privateKey;
@@ -366,74 +359,75 @@ public String getBalance(String account){
 
     }
   */
-  @SimpleFunction (
-		   description = "Get jose acc1 private key")
+
   /**
    * Get jose acc1 private key
    *
    * @return jose acc1 private key
    */
+  @SimpleFunction (
+		   description = "Get jose acc1 private key")
 		   public String getMyPrivateKey1 () {
     return "0x14ebf22bed393fba2f7ccb8b066e0def213a4ffb4104cb857c93f77aee81fb80";
+    // clem : fa3ec1fbb708a16c8ff989831b4fb08d9b8f008605e55cb35f19a5f430939483
   }
 
-  @SimpleFunction (
-		   description = "Get jose acc1 address")
   /**
    * Get jose acc1 address
    *
    * @return jose acc1 address
    */
+  @SimpleFunction (
+		   description = "Get jose acc1 address")
 		   public String getMyAddress1 () {
     return "0xcffecd1800c4a713f69BF0980c810a67452f999f";
+    // clem : 0x210053ed365203a6a8F3983F7823B4326Fd1F9D7
   }
   
-  @SimpleFunction (
-		   description = "Get jose acc2 private key")
   /**
    * Get jose acc2 private key
    *
    * @return jose acc2 private key
    */
+  @SimpleFunction (
+		   description = "Get jose acc2 private key")
 		   public String getMyPrivateKey2 () {
     return "0xee0acd09f8d473486f06d800e8b04ad94ea89f6e59fb4e6bf22cd167be751f1b";
   }
 
-  @SimpleFunction (
-		   description = "Get jose acc2 address")
   /**
    * Get jose acc2 address
    *
    * @return jose acc2 address
    */
+  @SimpleFunction (
+		   description = "Get jose acc2 address")
 		   public String getMyAddress2 () {
     return "0x29556bD6CAe91793085C16eDa4A23d24403b26c3";
   }
   
-  @SimpleFunction (
-		   description = "Get jose acc3 private key")
   /**
    * Get jose acc3 private key
    *
    * @return jose acc3 private key
    */
+  @SimpleFunction (
+		   description = "Get jose acc3 private key")
 		   public String getMyPrivateKey3 () {
     return "0x53493e1b418b3ebc112c55fb76d67a9027148d8202011c64776020819f4e4c79";
   }
 
-    @SimpleFunction (
-		   description = "Get jose acc3 address")
     /**
      * Get jose acc3 address
      *
      * @return jose acc3 address
      */
+    @SimpleFunction (
+		   description = "Get jose acc3 address")
 		   public String getMyAddress3 () {
     return "0x4b5b3f3c90abb0f9421ff3839dceab9ac2189013";
   }
   
-  @SimpleFunction (
-		   description = "Send Gwei = 10-9 ether.")
   /**
    * Send Gwei = 10-9 ether.
    *
@@ -443,6 +437,8 @@ public String getBalance(String account){
    * @param String data, the data to encript in the transaction, usually the identity hash here
    * @return the transaction hash if successful, if not a String Error : with an explaination of why it failed.
    */
+  @SimpleFunction (
+		   description = "Send Gwei = 10-9 ether.")
 		   public String sendGwei(String privKeyHex,String dest, String howMuchGwei,String data)
   {
     Credentials credentials = Credentials.create(privKeyHex);
@@ -458,12 +454,14 @@ public String getBalance(String account){
     int iterations=0;
     try {
       BigInteger gasPrice = web3.ethGasPrice().send().getGasPrice();
+      //gasPrice = gasPrice.shiftLeft(1);
       sentTransaction=rawTM.sendTransaction(gasPrice,gasLimit,
 					    dest,data,howMuchWei);
       transactionHash = sentTransaction.getTransactionHash();
 
       if (transactionHash == null || transactionHash.isEmpty()) {
-	return "Error: failed to send transaction";
+	return "Error: failed to send transaction. \n"
+            "Error message : " + sentTransaction.getError().getMessage() ;
       }
     } catch (IOException e) {
 	  return "Error: failed to send transaction, could not reach network";
@@ -502,14 +500,14 @@ public String getBalance(String account){
     }
   }
 
-@SimpleFunction(
-        description = "Get the status of a transaction")
 /**
  * Get the status of a transaction
  *
  * @param String transactionId, the hexadecimal id of the transaction to scan
  * @return a String, describing the status if successful, with a Error : + explanation if not.
  */
+@SimpleFunction(
+        description = "Get the status of a transaction")
 public String getTransactionStatus(String transactionId) {
 
     initializeWeb3();
@@ -543,8 +541,6 @@ public String getTransactionStatus(String transactionId) {
             txReceipt.getGasUsed());
 }
   
-  @SimpleFunction(
-		  description = "Checks if the account hash has been registered in a transaction")
   /**
    * Checks if the account hash has been registered in a transaction.
    *
@@ -556,6 +552,8 @@ public String getTransactionStatus(String transactionId) {
    * @param String hash, an identity hash (typically corresponding to the address before)
    * @return OKHASH or Wrong hash. Error if the network isn't reacheable.
    */
+  @SimpleFunction(
+		  description = "Checks if the account hash has been registered in a transaction")
       public String isValidQaxhAccountHash(String transaction_0x, String address, String hash) {
       initializeWeb3();
       EthTransaction ethTx;
@@ -579,14 +577,14 @@ public String getTransactionStatus(String transactionId) {
       }
   }
   
-  @SimpleFunction(
-		  description = "Retrieves all the details in a transaction")
   /**
    * Retrieves all the details in a transaction
    *
    * @param String transaction_0x, the hexadecimal id of a transaction
    * @return if the network is reachable : a String with the block, sender, receiver, amount and date; if not, a String Error.
    */
+  @SimpleFunction(
+		  description = "Retrieves all the details in a transaction")
       public String getTransactionDetails(String transaction_0x) {
       initializeWeb3();
       EthTransaction ethTx;

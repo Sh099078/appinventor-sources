@@ -51,7 +51,11 @@ import android.util.Log;
 import java.io.File;
 import java.util.Date;
 
-
+/**
+ * Provides access to QRcode functions
+ *
+ * @author Jose Luu
+ */ 
 @DesignerComponent(version = YaVersion.QAXH_QR_COMPONENT_VERSION,
    description = "A component return the hash of a string.",
    category = ComponentCategory.EXTENSION,
@@ -59,25 +63,23 @@ import java.util.Date;
    iconName = "aiwebres/hash.png")
 @SimpleObject(external=true)
 //@UsesLibraries(libraries = "zxing-core.jar")
-
-public class QAXH_Qr extends AndroidNonvisibleComponent implements Component {
-/**
- * Provides access to QRcode functions
- *
- * @class QAXH_Qr
- */  
+public class QAXH_Qr extends AndroidNonvisibleComponent implements Component { 
   private static final String LOG_TAG = "QaxhQrCodeComponent";
 
-  
-  public QAXH_Qr(ComponentContainer container) {
-    /**
+  /**
    * Creates a QAXH_Qr component.
    *
    * @param container container, component will be placed in
    */
+  public QAXH_Qr(ComponentContainer container) {
      super(container.$form());
   }
 
+  /**
+  *Display a QRCore encripting the data passed in argument
+  *
+  *@param data 
+  */
   @SimpleFunction(
     description = "Creates a QR code picture")
     public String QRCodeGenerator(String data) throws IOException, WriterException{
@@ -133,15 +135,14 @@ public class QAXH_Qr extends AndroidNonvisibleComponent implements Component {
     //return "Error IOException";
   }
 
+/**
+* Get a 128 bits random number
+*
+* @return a 128 bits random number
+*/
  @SimpleFunction(
     description = "Get a 128 bits random number")
- 
     public String getRandom128(){
-   /**
-    * Get a 128 bits random number
-    *
-    * @return a 128 bits random number
-    */
     SecureRandom rng = new SecureRandom();
     byte[] randomBytes = new byte[16];
 
@@ -150,15 +151,14 @@ public class QAXH_Qr extends AndroidNonvisibleComponent implements Component {
     return bytesToHex(randomBytes);
 }
 
+/**
+* Get a 256 bits random number
+*
+* @return a 256 bits random number
+*/
  @SimpleFunction(
     description = "Get a 256 bits random number")
- 
     public String getRandom256(){ 
-    /**
-    * Get a 256 bits random number
-    *
-    * @return a 256 bits random number
-    */
     SecureRandom rng = new SecureRandom();
     byte[] randomBytes = new byte[32];
 
@@ -168,8 +168,6 @@ public class QAXH_Qr extends AndroidNonvisibleComponent implements Component {
 }
 private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
 
-
-private static String bytesToHex(byte[] bytes) {
 /**
  * Convert from bytes to hexadecimal
  *
@@ -178,6 +176,7 @@ private static String bytesToHex(byte[] bytes) {
  * @param byte[] bytes, the array of bits to be translated
  * @return a string containing the transalation in hexadecimal
  */
+private static String bytesToHex(byte[] bytes) {
     char[] hexChars = new char[bytes.length * 2];
     for ( int j = 0; j < bytes.length; j++ ) {
         int v = bytes[j] & 0xFF;
