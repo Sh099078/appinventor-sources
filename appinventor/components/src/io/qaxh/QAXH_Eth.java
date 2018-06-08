@@ -454,7 +454,7 @@ public String getBalance(String account){
     int iterations=0;
     try {
       BigInteger gasPrice = web3.ethGasPrice().send().getGasPrice();
-      //gasPrice = gasPrice.shiftLeft(1);
+      gasPrice = gasPrice.multiply(BigInteger.valueOf(2)); //to make it faster
       sentTransaction=rawTM.sendTransaction(gasPrice,gasLimit,
 					    dest,data,howMuchWei);
       transactionHash = sentTransaction.getTransactionHash();
