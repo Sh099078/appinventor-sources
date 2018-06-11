@@ -224,6 +224,18 @@ private static String bytesToHex(byte[] bytes) {
     }
     return new String(hexChars);
 }
+
+@SimpleFunction(
+    description = "Convert to hexadecimal")
+/**
+ * Convert text to hexadecimal
+ *
+ * @param text
+ * @return a String encoding the text passed in parameter in hexadecimal
+ */
+public String toHex(String text) {
+    return String.format("0x%040x", new BigInteger(1, text.getBytes("UTF-8")));
+}
  
  /**
  * Gets the client version from infura.
@@ -460,7 +472,7 @@ public String getBalance(String account){
       transactionHash = sentTransaction.getTransactionHash();
 
       if (transactionHash == null || transactionHash.isEmpty()) {
-	return "Error: failed to send transaction. \n"
+	return "Error: failed to send transaction. \n" +
             "Error message : " + sentTransaction.getError().getMessage() ;
       }
     } catch (IOException e) {
