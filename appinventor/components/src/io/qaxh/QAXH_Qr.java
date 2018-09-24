@@ -55,135 +55,135 @@ import java.util.Date;
  * Provides access to QRcode functions
  *
  * @author Jose Luu
- */ 
+ */
 @DesignerComponent(version = YaVersion.QAXH_QR_COMPONENT_VERSION,
-   description = "A component return the hash of a string.",
-   category = ComponentCategory.EXTENSION,
-   nonVisible = true,
-   iconName = "aiwebres/hash.png")
+        description = "A component return the hash of a string.",
+        category = ComponentCategory.EXTENSION,
+        nonVisible = true,
+        iconName = "aiwebres/hash.png")
 @SimpleObject(external=true)
 //@UsesLibraries(libraries = "zxing-core.jar")
-public class QAXH_Qr extends AndroidNonvisibleComponent implements Component { 
-  private static final String LOG_TAG = "QaxhQrCodeComponent";
+public class QAXH_Qr extends AndroidNonvisibleComponent implements Component {
+    private static final String LOG_TAG = "QaxhQrCodeComponent";
 
-  /**
-   * Creates a QAXH_Qr component.
-   *
-   * @param container container, component will be placed in
-   */
-  public QAXH_Qr(ComponentContainer container) {
-     super(container.$form());
-  }
+    /**
+     * Creates a QAXH_Qr component.
+     *
+     * @param container container, component will be placed in
+     */
+    public QAXH_Qr(ComponentContainer container) {
+        super(container.$form());
+    }
 
-  /**
-  *Display a QRCore encripting the data passed in argument
-  *
-  *@param data 
-  */
-  @SimpleFunction(
-    description = "Creates a QR code picture")
+    /**
+     *Display a QRCore encripting the data passed in argument
+     *
+     *@param data
+     */
+    @SimpleFunction(
+            description = "Creates a QR code picture")
     public String QRCodeGenerator(String data) throws IOException, WriterException{
-    BitMatrix bitMatrix;
-    Bitmap bitmap;
-    try {
-      bitMatrix  = new QRCodeWriter().encode(data, BarcodeFormat.QR_CODE, 512, 512);
-      bitmap = Bitmap.createBitmap(bitMatrix.getWidth(), bitMatrix.getHeight(), Bitmap.Config.ARGB_8888);
+        BitMatrix bitMatrix;
+        Bitmap bitmap;
+        try {
+            bitMatrix  = new QRCodeWriter().encode(data, BarcodeFormat.QR_CODE, 512, 512);
+            bitmap = Bitmap.createBitmap(bitMatrix.getWidth(), bitMatrix.getHeight(), Bitmap.Config.ARGB_8888);
 
-      for (int y = 0; y < bitMatrix.getHeight(); y++) {
-        for (int x = 0; x < bitMatrix.getWidth(); x++) {
-          if (bitMatrix.get(x, y)) {
-            bitmap.setPixel(x, y, Color.BLACK);
-          }
+            for (int y = 0; y < bitMatrix.getHeight(); y++) {
+                for (int x = 0; x < bitMatrix.getWidth(); x++) {
+                    if (bitMatrix.get(x, y)) {
+                        bitmap.setPixel(x, y, Color.BLACK);
+                    }
+                }
+            }
+
+        } catch (WriterException e) {
+            Log.w(LOG_TAG, e);
+            throw e;
+            //return "Error";
         }
-      }
+        File file = null;
+        try {
+            String path = Environment.getExternalStorageDirectory().toString();
+            file = new File(path + "/Captures/", "QRCodeQaxh.png");
 
-    } catch (WriterException e) {
-      Log.w(LOG_TAG, e);
-      throw e;
-      //return "Error";
+            //file = File.createTempFile("AI_Media_", ".png");
+            //file.deleteOnExit();
+            File dir = new File(path + "/Captures/");
+            if (!dir.exists()) {
+                dir.mkdirs();
+            }
+            FileOutputStream fOut = new FileOutputStream(file);
+            // 100 means no compression, the lower you go, the stronger the compression
+            if (bitmap.compress(Bitmap.CompressFormat.PNG, 100, fOut)) {
+                fOut.close();
+                return file.getAbsolutePath();
+            } else {
+                return "Could not compress bitmap to file: "+file.getAbsolutePath();
+            }
+
+        } catch (IOException e) {
+            if (file != null) {
+                Log.e(LOG_TAG, "Could not copy QRcode to temp file " +
+                        file.getAbsolutePath());
+                file.delete();
+            } else {
+                Log.e(LOG_TAG, "Could not copy QRcode to temp file.");
+            }
+            throw e;
+        }
+        //return "Error IOException";
     }
-    File file = null;
-    try {
-      String path = Environment.getExternalStorageDirectory().toString();
-      file = new File(path + "/Captures/", "QRCodeQaxh.png");
 
-      //file = File.createTempFile("AI_Media_", ".png");
-      file.deleteOnExit();
-	  File dir = new File(path + "/Captures/");
-	  if (!dir.exists()) {
-	      dir.mkdirs();
-	  }
-      FileOutputStream fOut = new FileOutputStream(file);
-      // 100 means no compression, the lower you go, the stronger the compression
-      if (bitmap.compress(Bitmap.CompressFormat.PNG, 100, fOut)) {
-	fOut.close();
-        return file.getAbsolutePath();
-      } else {
-	  return "Could not compress bitmap to file: "+file.getAbsolutePath();
-      }
-
-    } catch (IOException e) {
-      if (file != null) {
-        Log.e(LOG_TAG, "Could not copy QRcode to temp file " +
-            file.getAbsolutePath());
-        file.delete();
-      } else {
-        Log.e(LOG_TAG, "Could not copy QRcode to temp file.");
-      }
-      throw e;
-    }
-    //return "Error IOException";
-  }
-
-/**
-* Get a 128 bits random number
-*
-* @return a 128 bits random number
-*/
- @SimpleFunction(
-    description = "Get a 128 bits random number")
+    /**
+     * Get a 128 bits random number
+     *
+     * @return a 128 bits random number
+     */
+    @SimpleFunction(
+            description = "Get a 128 bits random number")
     public String getRandom128(){
-    SecureRandom rng = new SecureRandom();
-    byte[] randomBytes = new byte[16];
+        SecureRandom rng = new SecureRandom();
+        byte[] randomBytes = new byte[16];
 
-    rng.nextBytes(randomBytes);
+        rng.nextBytes(randomBytes);
 
-    return bytesToHex(randomBytes);
-}
-
-/**
-* Get a 256 bits random number
-*
-* @return a 256 bits random number
-*/
- @SimpleFunction(
-    description = "Get a 256 bits random number")
-    public String getRandom256(){ 
-    SecureRandom rng = new SecureRandom();
-    byte[] randomBytes = new byte[32];
-
-    rng.nextBytes(randomBytes);
-
-    return bytesToHex(randomBytes);
-}
-private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
-
-/**
- * Convert from bytes to hexadecimal
- *
- * This function isn't visible from AppInventor.
- *
- * @param byte[] bytes, the array of bits to be translated
- * @return a string containing the transalation in hexadecimal
- */
-private static String bytesToHex(byte[] bytes) {
-    char[] hexChars = new char[bytes.length * 2];
-    for ( int j = 0; j < bytes.length; j++ ) {
-        int v = bytes[j] & 0xFF;
-        hexChars[j * 2] = hexArray[v >>> 4];
-        hexChars[j * 2 + 1] = hexArray[v & 0x0F];
+        return bytesToHex(randomBytes);
     }
-    return new String(hexChars);
-  }
+
+    /**
+     * Get a 256 bits random number
+     *
+     * @return a 256 bits random number
+     */
+    @SimpleFunction(
+            description = "Get a 256 bits random number")
+    public String getRandom256(){
+        SecureRandom rng = new SecureRandom();
+        byte[] randomBytes = new byte[32];
+
+        rng.nextBytes(randomBytes);
+
+        return bytesToHex(randomBytes);
+    }
+    private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
+
+    /**
+     * Convert from bytes to hexadecimal
+     *
+     * This function isn't visible from AppInventor.
+     *
+     * @param byte[] bytes, the array of bits to be translated
+     * @return a string containing the transalation in hexadecimal
+     */
+    private static String bytesToHex(byte[] bytes) {
+        char[] hexChars = new char[bytes.length * 2];
+        for ( int j = 0; j < bytes.length; j++ ) {
+            int v = bytes[j] & 0xFF;
+            hexChars[j * 2] = hexArray[v >>> 4];
+            hexChars[j * 2 + 1] = hexArray[v & 0x0F];
+        }
+        return new String(hexChars);
+    }
 
 }

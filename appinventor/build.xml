@@ -3,6 +3,7 @@
 <!-- ======================================================================
      Copyright 2011 Google Inc.  All Rights Reserved.
      Author: lizlooney@google.com (Liz Looney)
+
      App Inventor common libraries
      ====================================================================== -->
 
@@ -138,12 +139,37 @@
         <!-- app engine libs -->
         <pathelement location="lib/appengine/appengine-java-sdk-1.9.17/lib/user/appengine-api-1.0-sdk-1.9.17.jar"/>
         <pathelement location="lib/gcs/appengine-gcs-client-0.4.3.jar"/>
-        -->
+        <!-- comment to try to male it work -->
         <pathelement location="lib/appengine/appengine-java-sdk-1.9.17/lib/testing/appengine-testing.jar"/>
         <pathelement location="lib/appengine/appengine-java-sdk-1.9.17/lib/impl/appengine-api-stubs.jar"/>
         <pathelement location="lib/appengine/appengine-java-sdk-1.9.17/lib/user/orm/geronimo-jpa_3.0_spec-1.1.1.jar"/>
         <!-- prevent error importing GitBuildId if it has been generated -->
         <pathelement location="common/build/classes/CommonVersion" />
+        <!-- paths for the extensions librairies-->
+        <!-- 
+        <pathelement location="lib/jackson-core/jackson-annotations-2.1.4.jar" />
+        <pathelement location="lib/jackson-core/jackson-annotations-2.8.0.jar" />
+        <pathelement location="lib/jackson-core/jackson-core-2.1.3.jar" />
+        <pathelement location="lib/jackson-core/jackson-core-2.8.5.jar" />
+        <pathelement location="lib/jackson-core/jackson-databind-2.1.3.jar" />
+        <pathelement location="lib/jackson-core/jackson-databind-2.8.5.jar" />
+        <pathelement location="lib/javapoet/javapoet-1.7.0.jar" />
+        <pathelement location="lib/okhttp/logging-interceptor-3.10.0.jar" />
+        <pathelement location="lib/okhttp/okhttp-3.10.0.jar" />
+        <pathelement location="lib/okio/okio-1.14.1.jar" />
+        <pathelement location="lib/rxjava/rxjava-1.0.8.jar" />
+        <pathelement location="lib/scrypt/scrypt-1.4.0.jar" />
+        <pathelement location="lib/slf4j/slf4j-api-1.7.25.jar" />
+        <pathelement location="lib/spongycastle/core-1.54.0.0.jar" />
+        <pathelement location="lib/spongycastle/prov-1.54.0.0.jar" />
+        <pathelement location="lib/web3j/abi-3.3.1-android.jar" />
+        <pathelement location="lib/web3j/core-3.3.1-android.jar" />
+        <pathelement location="lib/web3j/core-android-2.2.1.jar" />
+        <pathelement location="lib/web3j/crypto-3.3.1-android.jar" />
+        <pathelement location="lib/web3j/rip-3.3.1-android.jar" />
+        <pathelement location="lib/web3j/tuples-3.3.1-android.jar" />
+        <pathelement location="lib/web3j/utils-3.3.1-android.jar" />
+    	-->
       </classpath>
       <!-- TODO(opensource) - Add more <link> elements that correspond to the jars on the
            classpath above,so our javadoc will link appropriate online javadoc for libraries we

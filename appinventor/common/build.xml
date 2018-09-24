@@ -133,9 +133,9 @@
     <mkdir dir="${local.build.dir}/src/${common.pkg}/version/"/>
     <copy tofile="${local.build.dir}/src/${common.pkg}/version/GitBuildId.java" file="GitBuildId.template" filtering="true" />
 
-    <ai.javac5 destdir="${CommonVersion-class.dir}" srcdir="${src.dir};${local.build.dir}/src">
+    <ai.javac8 destdir="${CommonVersion-class.dir}" srcdir="${src.dir};${local.build.dir}/src">
       <include name="${common.pkg}/version/*.java" />
-    </ai.javac5>
+    </ai.javac8>
 
     <jar destfile="${public.build.dir}/CommonVersion.jar">
       <fileset dir="${CommonVersion-class.dir}"/>
@@ -167,10 +167,10 @@
     <property name="BlocksEditorHttpConstants-class.dir" location="${class.dir}/BlocksEditorHttpConstants" />
     <mkdir dir="${BlocksEditorHttpConstants-class.dir}" />
 
-    <ai.javac5 destdir="${BlocksEditorHttpConstants-class.dir}">
+    <ai.javac8 destdir="${BlocksEditorHttpConstants-class.dir}">
       <include name="${common.pkg}/jsonp/JsonpConstants.java" />
       <include name="${common.pkg}/youngandroid/YaHttpServerConstants.java" />
-    </ai.javac5>
+    </ai.javac8>
 
     <jar destfile="${public.build.dir}/BlocksEditorHttpConstants.jar">
       <fileset dir="${BlocksEditorHttpConstants-class.dir}"/>
