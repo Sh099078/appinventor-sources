@@ -1,3 +1,77 @@
+			============================
+			########## README ##########
+			============================
+
+Introduction:
+=============
+
+Informations from this README principaly come from AppInventor Documentation
+Don't hesitate to refer to it if you want more precise informations.
+
+
+Summary:
+========
+
+1. Compilation
+
+
+2. Running Build Server
+
+
+3. Create Components
+
+
+
+
+1. Compilation:
+###############
+
+Compile project with Ant (works fine with version 1.10.5)
+
+
+* Clean before building is advised as it remove already compiled files
+  that you may want to compile a new version.
+
+  > ant clean
+
+
+* Always generate an AuthKey before building, otherwise you will face
+  compiler error 
+
+  > ant MakeAuthKey
+
+
+* Build AppInventor, you must be in ${AppInventorSourcesDir}/appinventor
+  directory.
+
+  > ant
+
+* Build only extensions, you must be in ${AppInventorSourcesDir}/appinventor
+  directory.
+
+  > ant extensions
+
+
+These are the most useful build command. If you want more precise informations
+about building AppInventor, you should look at root build.xml file.
+(${AppInventorSourcesDir}/appinventor/build.xml)
+
+
+2. Running Build Server:
+########################
+
+Build and Run 'Build Server', you should be in ${AppInventorSourcesDir}/appinventor/buildserver
+
+  > ant RunLocalBuildServer
+
+You'll probably want to maintain a log, and also run detached
+
+  > nohup ant RunLocalBuildServer > ../../buildserver-log.out &
+
+
+3. Create Components:
+#####################
+
 Python Script to create Visible and Non Visible Components boilerplate code.
 
 run: python misc/componentcreator/componentcreator.py
@@ -8,3 +82,5 @@ Windows users should install python before using the script.
 
 Link to the design document:
 https://docs.google.com/document/d/1HetZsFh6x0n6J_9PW_OFUzU4icw0y2kdnzUvbqwtcBQ/edit
+
+QAXH component sources are located under ${AppInventorSourcesDir}/appinventor/components/src/io/qaxh
