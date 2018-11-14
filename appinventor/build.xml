@@ -94,6 +94,9 @@
         <pathelement location="components/src" />
       </sourcepath>
       <classpath>
+	<!-- Commons Imaging -->
+	<pathelement location="lib/image/commons-imaging-1.0.jar" />
+	
         <pathelement location="lib/android/5.1.1/android.jar" />
         <pathelement location="lib/android/tools/ddmlib.jar"/>
         <pathelement location="lib/bouncycastle/bcprov-jdk15on-149.jar"/>
