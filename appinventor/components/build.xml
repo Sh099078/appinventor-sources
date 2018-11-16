@@ -183,6 +183,7 @@
           <pathelement location="${lib.dir}/spongycastle/core-1.54.0.0.jar" />
 
 	  <pathelement location="${lib.dir}/image/commons-imaging-1.0.jar" />
+	  <pathelement location="${lib.dir}/bouncycastle/bcprov-jdk15on-149.jar" />
 	  
       </classpath>
     </ai.javac5>
@@ -336,6 +337,7 @@
           <pathelement location="${lib.dir}/spongycastle/prov-1.54.0.0.jar" />
           <pathelement location="${lib.dir}/spongycastle/core-1.54.0.0.jar" />
 	  <pathelement location="${lib.dir}/image/commons-imaging-1.0.jar" />
+	  <pathelement location="${lib.dir}/bouncycastle/bcprov-jdk15on-149.jar" />
 	  
         </classpath>
         <compilerarg line="-processorpath ${local.build.dir}/AnnotationProcessors.jar"/>
